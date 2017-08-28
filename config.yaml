@@ -8,8 +8,8 @@ runtime: python2.7
 
 # if access key and secret are left blank, boto will use the credentials
 # defined in the [default] section of ~/.aws/credentials.
-aws_access_key_id: AKIAIQ4ARXU3RCEF4F3A
-aws_secret_access_key: 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
+aws_access_key_id:
+aws_secret_access_key:
 
 # dist_directory: dist
 # timeout: 15

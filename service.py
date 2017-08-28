@@ -7,6 +7,7 @@ import pymysql
 
 def handler(event, context):
 
+    conn = conn = pymysql.connect(host='devinmysql.cpvtwhh9r9mc.us-west-1.rds.amazonaws.com:3306', port=3306, user='devinmysql', passwd='devin,ysql', db='devinmysql')
     client = boto3.client('s3')
     bucket_name = 'devinvillarosa-sjsu-public'
 
