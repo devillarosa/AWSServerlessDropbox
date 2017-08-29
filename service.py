@@ -1,13 +1,25 @@
+import sys
 import boto3
 import json
 import re
 import collections
 import pymysql
+import rds_config
+
+rds_host = "devinmydb.cpvtwhh9r9mc.us-west-1.rds.amazonaws.com"
+rds_port = 3306
+db_user = rds_config.db_username
+db_password = rds_config.db_password
+db_name = rds_config.db_name
+
+try:
+    conn = pymysql.connect(rds_host, port=rds_port, user=db_user, passwd=db_password, db=db_name, connect_timeout=5)
+except:
+    sys.exit()
 
 
 def handler(event, context):
 
-    conn = conn = pymysql.connect(host='devinmysql.cpvtwhh9r9mc.us-west-1.rds.amazonaws.com:3306', port=3306, user='devinmysql', passwd='devin,ysql', db='devinmysql')
     client = boto3.client('s3')
     bucket_name = 'devinvillarosa-sjsu-public'
 
@@ -34,7 +46,7 @@ def handler(event, context):
                 "body": output
                 }
 
-    return resp
+        return resp
 
 
 
